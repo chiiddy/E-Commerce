@@ -1,25 +1,48 @@
-import {useContext} from 'react'
-import { cartContext } from '../context/context'
-
+import React, { useContext } from 'react';
+import { cartContext } from '../context/context';
+import {BiHomeCircle} from 'react-icons/bi'
 
 export default function Cart() {
-    const globalState = useContext(cartContext)
-    const state = globalState.state;
-    const dispatch = globalState.dispatch;
+  const { state } = useContext(cartContext);
+  console.log(state)
+
   return (
     <div>
-        <div>
-        {state.map((produce) => {
-            return (
-                <div key={produce} > 
-                <div>
-                    <p>{produce.name}</p>
-                    <img src={produce.posterUrl} alt='' />
-                </div>
-                </div>
-            )
-        })}
-        </div>
+        <div className='flex justify-center bg-red-600 text-white'>
+      <h1 className='text-xl font-bold ml-[43rem]'> Cart</h1>
+      <div className='ml-[48rem] mt-2'>
+        <a href ='/'><BiHomeCircle /></a>
+      </div>
+      </div>
+      <div>
+      <ul>
+        {state.map((products) => (
+          <li key={products}>
+            
+            <div className='mt-6 ml-7'>
+                <div className='flex gap-4'>
+                <div className='w-[7.5rem]'>
+            <img src={products.posterUrl} alt={products.name} />
+            </div>
+            <div className='text-lg font-semibold'>
+            <p>{products.name}</p>
+            </div>
+            <div className='ml-[53rem] items-center'>
+            <p>{products.price}</p>
+            <div>
+            <button className='bg-black w-6 text-white'>+</button>
+            <button className='bg-black w-6 text-white'>-</button>
+            {/* <p>{products.quantity}</p>
+            <p>{products.quantity * products.price}</p> */}
+            </div>
+            </div>
+            </div>
+            <hr className='mt-10'></hr>
+            </div>
+          </li>
+        ))}
+</ul>
+</div>
     </div>
-  )
+  );
 }

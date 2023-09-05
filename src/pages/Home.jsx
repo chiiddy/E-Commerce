@@ -92,12 +92,14 @@ export default function Home() {
         <section>
             <div className='grid grid-cols-4 gap-1'>
         {productss.map((produce) =>{
+            // produce.quantity= 1;
           return (  <div key={produce} >
                 <div className='w-[12rem] pt-[7.3rem] ml-[9.5rem] '>
                     <img src={produce.posterUrl} alt=''/>
                     <p className='text-center'>{produce.name}</p>
                     <p className='text-center'>{produce.description}</p>
                     <p className='text-center'>{produce.price}</p>
+                    {produce.quantity}
                     <button className='bg-black h-8 w-[7rem] text-white rounded ml-9' onClick={()=>dispatch({type: 'ADD', payload: produce})}>Add to cart</button>
                     </div>
                 </div>
