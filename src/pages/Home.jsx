@@ -23,7 +23,8 @@ export default function Home() {
         'tv'
         
     ];
-    const [productss, setProducts] = useState (itemList,[]);
+    const [ filtered, setFiltered ] = useState(itemList)
+    const [productss, setProducts] = useState ([]);
     
 
     const filterBySearch = (e) => {
@@ -32,7 +33,7 @@ export default function Home() {
         updatedList = updatedList.filter((produce) => {
             return produce.toLowerCase().indexOf(result.toLowerCase()) !== -1;
         });
-        setProducts(updatedList);
+        setFiltered(updatedList);
     };
     
 
@@ -72,11 +73,11 @@ export default function Home() {
         </section>
         <div>
         <div className='fixed'>
-            <input type='text' placeholder='Search products' value={productss} onChange={filterBySearch} className='w-[23rem] h-[3.2rem] mt-4 ml-[82rem] border border-red-700 rounded pl-3' />
+            <input type='text' placeholder='Search products' onChange={filterBySearch} className='w-[23rem] h-[3.2rem] mt-4 ml-[82rem] border border-red-700 rounded pl-3' />
         </div>
         <div>
             <ol>
-            {productss.map((produce) => {
+            {filtered.map((produce) => {
                 return ( <div key={produce} >
                 <div>
                     <li>
