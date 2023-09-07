@@ -17,10 +17,8 @@ export default function Signin() {
   const OnSubmit = (e) => {
     e.preventDefault();
     try {
-      axios.post ('https://magneto-bqfl.onrender.com/api/accounts/login').then((res) => {
-        setInputs(res.data.inputs)
-        console.log(res.data); 
-
+      axios.post ('https://magneto-bqfl.onrender.com/api/accounts/login', inputs).then((res) => {
+        console.log(res.data);
         navigate('/')
         alert('Login successfully');
       })
