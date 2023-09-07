@@ -40,7 +40,7 @@ export default function Home() {
     // const [isLoading, setIsLoading] = useState(true);
     const allProducts =  () => {
         try {
-             axios.get('https://magneto-bqfl.onrender.com/api/products/all-products').then((res) =>{
+             axios.get('https://shopping-today.onrender.com/api/products/all-products').then((res) =>{
                 setProducts(res.data.products)
                 console.log('data', res.data);
             });

@@ -21,7 +21,7 @@ export default function Users() {
     const onSubmit = async (e) => {
         e.preventDefault();
         try {
-            axios.post('https://magneto-bqfl.onrender.com/api/accounts/create-user', inputs).then((res) =>{
+            axios.post('https://shopping-today.onrender.com/api/accounts/create-user', inputs).then((res) =>{
               console.log(res.data);
               navigate('/')
               alert("User registered successfully!!");

@@ -17,7 +17,7 @@ export default function Signin() {
   const OnSubmit = (e) => {
     e.preventDefault();
     try {
-      axios.post ('https://magneto-bqfl.onrender.com/api/accounts/login', inputs).then((res) => {
+      axios.post ('https://shopping-today.onrender.com/api/accounts/login', inputs).then((res) => {
         console.log(res.data);
         navigate('/')
         alert('Login successfully');
