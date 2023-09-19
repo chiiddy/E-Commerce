@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import ecommerceLogo from '../assets/ecommerceLogo.png';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 
 export default function Users() {
@@ -29,7 +29,13 @@ export default function Users() {
           }catch (err) {
             console.log(err);
         }
-    }
+    };
+
+    const handleButtonClick = () => {
+        alert ('User registered successfully!!')
+    };
+
+    
   return (
     <div className='flex justify-center mt-[4rem]'>
         <section>
@@ -55,11 +61,11 @@ export default function Users() {
                 <input type='password' placeholder='Password' required id='password' value={inputs.password} onChange={handleOnChange}  className='w-[29.8rem] h-[3.6rem] border border-red-700 rounded pl-5' />
                 </div>
             </div>
-            <a href='/'><button className='w-[29.8rem] h-[3.6rem] bg-red-600 rounded text-white mt-4 '>Continue</button></a>
+            <button onClick={handleButtonClick} className='w-[29.8rem] h-[3.6rem] bg-red-600 rounded text-white mt-4 '><Link to='/'>Continue</Link></button>
             </form>
             <div className='mt-9'>
                 <p>Already a user?</p>
-               <a href='/Signin'> <button className='w-[29.8rem] h-[3.6rem] bg-red-600 rounded text-white' >Log in</button></a>
+               <button className='w-[29.8rem] h-[3.6rem] bg-red-600 rounded text-white' ><Link to='/Signin'>Log in </Link></button>
                 <div>
                     <p className='font-thin ml-3'>For further support, you may visit the Help Center or contact our <br></br>customer service team.</p>
                 </div>

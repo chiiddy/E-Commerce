@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import ecommerceLogo from '../assets/ecommerceLogo.png';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 
 export default function Signin() {
@@ -26,6 +26,12 @@ export default function Signin() {
       console.log(err);
     }
 };
+
+const handleButtonClick = () => {
+  alert ('login successfully!!')
+};
+
+
   return (
     <div className='flex justify-center mt-[4rem]'>
         <section>
@@ -46,7 +52,7 @@ export default function Signin() {
                 </div>
             </div>
             <div className='mt-9'>
-               <a href='/'> <button className='w-[29.8rem] h-[3.6rem] bg-red-600 rounded text-white' >Log in</button></a>
+               <button onClick={handleButtonClick} className='w-[29.8rem] h-[3.6rem] bg-red-600 rounded text-white' ><Link to='/'>Log in</Link></button>
                 <div>
                     <p className='font-thin ml-3'>For further support, you may visit the Help Center or contact our <br></br>customer service team.</p>
                 </div>

@@ -2,8 +2,9 @@ import React, {useEffect, useState, useContext} from 'react';
 import {BsCart3} from 'react-icons/bs';
 import ecommerceLogo from '../assets/ecommerceLogo.png';
 import {AiFillMail} from 'react-icons/ai';
-import axios from 'axios'
+import axios from 'axios';
 import { cartContext } from '../context/context';
+import { Link } from 'react-router-dom';
 
 export default function Home() {
     
@@ -62,12 +63,12 @@ export default function Home() {
             </div>
             <div className='flex ml-[39rem]'>
             <ul className='flex items-center gap-[4rem]'>
-               <a href ='/'> <li><h1>HOME</h1></li> </a>
+               <li><Link to='/'><h1>HOME</h1></Link></li>
                 <li>PHONES</li>
                 <li>OTHER ACCESSORIES</li>
-               <a href= '/cart'> <li><BsCart3 /></li></a>
-               <a href='/User'> <li><button>users</button></li></a>
-                <a href='/Admin'><li><button>Admin</button></li></a>
+                <li><Link to='/cart'><BsCart3 /></Link></li>
+                <li><button><Link to='/User'> users </Link></button></li>
+                <li><button><Link to='/Admin'>Admin </Link></button></li>
             </ul>
             </div>
         </section>

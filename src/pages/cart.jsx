@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { cartContext } from '../context/context';
-import {BiHomeCircle} from 'react-icons/bi'
+import {BiHomeCircle} from 'react-icons/bi';
+import { Link } from 'react-router-dom';
 
 export default function Cart() {
   const { state } = useContext(cartContext);
@@ -11,7 +12,7 @@ export default function Cart() {
         <div className='flex justify-center bg-red-600 text-white'>
       <h1 className='text-xl font-bold ml-[43rem]'> Cart</h1>
       <div className='ml-[48rem] mt-2'>
-        <a href ='/'><BiHomeCircle /></a>
+        <Link to='/'><BiHomeCircle /></Link>
       </div>
       </div>
       <div>

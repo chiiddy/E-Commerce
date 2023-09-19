@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import ecommerceLogo from '../assets/ecommerceLogo.png';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 export default function Admin() {
     const [inputs, setInputs] = useState({
@@ -15,12 +16,16 @@ export default function Admin() {
     const onSubmit = async (e) => {
         e.preventDefault();
         try {
-            axios.post('http://localhost:8000/api/admin/create-admin', inputs).then ((res) => {
+            axios.post('https://magneto-bqfl.onrender.com/api/admin/create-admin', inputs).then ((res) => {
                 console.log(res.data);
             })
         } catch (err) {
             console.log(err);
         }
+    };
+
+    const handleButtonClick = () => {
+        alert('logged in successful')
     };
   return (
     <div className='flex justify-center mt-[4rem]'>
@@ -43,7 +48,7 @@ export default function Admin() {
             </div>
             </form>
             <div className='mt-9'>
-               <a href='/'> <button className='w-[29.8rem] h-[3.6rem] bg-red-600 rounded text-white' >Log in</button></a>
+               <button onClick={handleButtonClick} className='w-[29.8rem] h-[3.6rem] bg-red-600 rounded text-white' ><Link to='/'>Log in</Link></button>
                 <div>
                     <p className='font-thin ml-3'>For further support, you may visit the Help Center or contact our <br></br>customer service team.</p>
                 </div>
