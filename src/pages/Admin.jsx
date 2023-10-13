@@ -16,7 +16,7 @@ export default function Admin() {
     const onSubmit = async (e) => {
         e.preventDefault();
         try {
-            axios.post('https://magneto-bqfl.onrender.com/api/admin/create-admin', inputs).then ((res) => {
+            axios.post('https://localhost:8000/api/admin/create-admin', inputs).then ((res) => {
                 console.log(res.data);
             })
         } catch (err) {

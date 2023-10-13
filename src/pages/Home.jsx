@@ -25,7 +25,7 @@ export default function Home() {
         
     ];
     const [ filtered, setFiltered ] = useState(itemList)
-    const [productss, setProducts] = useState ([]);
+    const [productss, setProductss] = useState ([]);
     
 
     const filterBySearch = (e) => {
@@ -39,16 +39,31 @@ export default function Home() {
     
 
     // const [isLoading, setIsLoading] = useState(true);
-    const allProducts =  () => {
-        try {
-             axios.get('https://magneto-bqfl.onrender.com/api/products/all-products').then((res) =>{
-                setProducts(res.data.products)
-                console.log('data', res.data);
-            });
-        } catch (err) {}
-    };
+    // const allProducts =  () => {
+    //     try {
+    //          axios.get('https://localhost:8000/api/products/all-products').then((res) =>{
+    //             setProductss(res.data.products)
+    //             console.log('data', res.data);
+    //         })
+    //     } catch (err) {}
+    // };
 
-    useEffect (allProducts, []);
+    // useEffect (allProducts, []);
+
+    const allProducts = () => {
+        axios.get('https://magneto-bqfl.onrender.com/api/products/all-products')
+          .then((res) => {
+            setProductss(res.data.products);
+            console.log('data', res.data);
+          })
+          .catch((error) => {
+            console.error('Error fetching data:', error);
+          });
+      };
+      
+      useEffect(() => {
+        allProducts();
+      }, []);
 
 
     const globalState = useContext(cartContext);

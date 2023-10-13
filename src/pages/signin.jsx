@@ -27,6 +27,18 @@ export default function Signin() {
     }
 };
 
+// const OnSubmit = (e) => {
+//   e.preventDefault();
+//   axios.post('https://localhost:8000/api/accounts/login', inputs).then((res) => {
+//     console.log(res.data);
+//     navigate('/')
+//     alert('Login successfully');
+//   })
+//   .catch((error) => {
+//     console.error(error);
+//   });
+// }
+
 const handleButtonClick = () => {
   alert ('login successfully!!')
 };
